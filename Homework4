@@ -1,5 +1,4 @@
 '''solidity
-
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 // contrat monnaie Dogcoin
@@ -37,3 +36,4 @@ modifier OnlyOwner {
 
 
 }
+'''
