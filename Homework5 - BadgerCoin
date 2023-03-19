@@ -6,6 +6,8 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract BadgerCoin {
 
+    constructor () {}
+
     string public Name = "BadgerCoin";
     string public Symbol = "BC";
     uint public Decimals = 18;
