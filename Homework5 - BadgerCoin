@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity 0.8.18;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract BadgerCoin {
+
+    string public Name = "BadgerCoin";
+    string public Symbol = "BC";
+    uint public Decimals = 18;
+    uint256 public InitialSupply = 10000000;
+
+
+}
