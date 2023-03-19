@@ -9,26 +9,37 @@ contract DogCoin {
     mapping(address => uint256) balances;
     event SupplyChange(uint256);
 
+    // Paramètres du constructor
     constructor(){
         owner = msg.sender;
         balances[owner] = TotalSupply;
     }
+
+    
     struct Payment {
         uint256 transferAmt;
         address RecipientAdress;
     }
 
+    //Fonction pour voir la total supply
     function getSupply () public view returns (uint256){
         return TotalSupply;
     }
 
+    //Fonction envoie des tokens
+    function transfer(address _adressReceiver, uint256 _amount) public {
+        require(balances[msg.sender] >= _amount, "Not enought funds");
+        balances[msg.sender] -= _amount;
+        balances[_adressReceiver] += _amount;
+    }
 
+    // Modifier onlyOwner
     modifier onlyOwner{
         require(owner==msg.sender, "not allowed");
         _;
     }
 
-
+    // Fonction pour incrémenter supply de 1000 -> uniquement via le owner
     function SupplyIncrease() public onlyOwner {
         TotalSupply += 1000;
         emit SupplyChange(TotalSupply);
